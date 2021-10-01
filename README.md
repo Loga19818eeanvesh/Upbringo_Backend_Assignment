@@ -62,3 +62,30 @@ Node.js, Express.js, MySQL, GraphQL
         email: String
         address: String
     }
+
+9. You can get following data from getProduct query
+    Product {
+        id : ID!
+        name: String
+        price: Float
+        discount: Float
+        gst: Float
+        totalAmount: Float
+        description: String
+    }
+
+10. You can get following data from getOrder query
+    type Order {
+        id : ID!
+        buyerName: String
+        buyerPhoneNumber: String
+        totalAmount: Float
+    }
+
+## Snapshots
+
+![create product](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.56.09%20PM.png)
+![create shop](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.56.39%20PM.png)
+![create order](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.57.12%20PM.png)
+![get product](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.57.32%20PM.png)
+![get order](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.58.18%20PM.png)

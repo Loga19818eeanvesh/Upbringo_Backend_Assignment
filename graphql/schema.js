@@ -27,10 +27,11 @@ module.exports = buildSchema(`
         address: String
     }
 
-    type orderItem{
+    input orderItem{
         id : ID!
         quantity : Int
     }
+
 
     input productInputData {
         name: String!

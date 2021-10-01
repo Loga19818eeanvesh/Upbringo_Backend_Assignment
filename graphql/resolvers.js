@@ -8,9 +8,8 @@ const { constant } = require('lodash');
 
 module.exports = {
   createProduct: async function({ productInput }) {
-    
-    const product = await Product.create(productInput);
-    
+    let amount=productInput.price-(productInput.discount/100)+productInput.gst;
+    const product = await Product.create({...productInput,totalAmount:amount});
     return product;
   },
 
@@ -44,29 +43,34 @@ module.exports = {
             buyerPhoneNumber,
             totalAmount
         });
-        orderInput.items.array.forEach(async (item)=> {
+        orderInput.items.forEach(async (item)=> {
             let id=item.id;
             let quantity=item.quantity;
-            const product = Product.findByPk(id);
+            const product = await Product.findByPk(id);
+            console.log(product);
             if(product){
-                let amount = quantity*(product.price);
+                let amount = quantity*(product.dataValues.totalAmount);
                 totalAmount+=amount;
-                await order.createOrderItem({
+                let orderItem=await OrderItem.create({
                     quantity : quantity,
-                    pricePerUnit : product.price,
-                    discount: product.discount,
-                    gst : product.gst,
-                    totalAmount: amount,
+                    pricePerUnit : product.dataValues.price,
+                    discount: product.dataValues.discount,
+                    gst : product.dataValues.gst,
+                    totalAmount: amount
                 });
-                order.addproduct(product);
+                await orderItem.setProduct(product);
+                //await order.addOrderItems([orderItem]);
+                console.log(amount);
+                order.totalAmount+=amount;
+                await order.save();
+                console.log(order.totalAmount);
             }
         });
-        order.totalAmount=totalAmount;
-        await order.save;
+        return order;
   },
 
-  getProduct : async function(id){
-        const product=Product.findByPk(id);
+  getProduct : async function(ID){
+        const product=Product.findByPk(ID.id);
         if(product){
             return product;
         }
@@ -74,8 +78,8 @@ module.exports = {
         throw error;
   },
 
-  getOrder : async function(id){
-    const order=Order.findByPk(id);
+  getOrder : async function(ID){
+    const order=Order.findByPk(ID.id);
     if(order){
         return order;
     }
