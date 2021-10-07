@@ -4,7 +4,7 @@ const Product = require('../models/product');
 const Shop = require('../models/shop');
 const Order = require('../models/order');
 const OrderItem = require('../models/order-item');
-const { constant } = require('lodash');
+
 
 module.exports = {
   createProduct: async function({ productInput }) {
@@ -22,7 +22,7 @@ module.exports = {
     if (
       !validator.isLength(shopInput.phoneNumber, { min: 10,max: 10 })
     ) {
-      errors.push({ message: 'Password too short!' });
+      errors.push({ message: 'PhoneNumber invalid!' });
     }
     if (errors.length > 0) {
       const error = new Error('Invalid input.');
@@ -58,12 +58,12 @@ module.exports = {
                     gst : product.dataValues.gst,
                     totalAmount: amount
                 });
-                await orderItem.setProduct(product);
-                //await order.addOrderItems([orderItem]);
-                console.log(amount);
                 order.totalAmount+=amount;
                 await order.save();
-                console.log(order.totalAmount);
+                await orderItem.setProduct(product);
+                await orderItem.setOrder(order);
+                //await order.addOrderItems([orderItem]);
+  
             }
         });
         return order;
