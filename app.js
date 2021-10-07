@@ -24,9 +24,12 @@ app.use(
   })
 );
 
-OrderItem.hasOne(Product);
-OrderItem.hasOne(Order);
-Order.hasMany(OrderItem, {as: 'ifYouWantAlias', constraints: false, allowNull:true, defaultValue:null});
+OrderItem.belongsTo(Product,{foreignKey: {
+  allowNull: false
+}});
+OrderItem.belongsTo(Order);
+Order.hasMany(OrderItem);
+//Order.hasMany(OrderItem, {as: 'ifYouWantAlias', constraints: false, allowNull:true, defaultValue:null});
 
 
 sequelize
