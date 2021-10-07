@@ -62,7 +62,7 @@ module.exports = {
                 await order.save();
                 await orderItem.setProduct(product);
                 await orderItem.setOrder(order);
-                await order.setOrderItem(orderItem);
+                await order.addOrderItem(orderItem);
                 //await order.addOrderItems([orderItem]);
   
             }
