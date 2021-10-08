@@ -12,11 +12,22 @@ module.exports = buildSchema(`
         description: String
     }
 
+    type OrderItems {
+        id : ID!
+        name: String
+        quantity: Int
+        pricePerUnit : Float
+        discount: Float
+        gst: Float
+        totalAmount: Float
+    }
+
     type Order {
         id : ID!
         buyerName: String
         buyerPhoneNumber: String
         totalAmount: Float
+        items: [OrderItems]
     }
 
     type Shop {

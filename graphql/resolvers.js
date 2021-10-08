@@ -71,7 +71,7 @@ module.exports = {
   },
 
   getProduct : async function(ID){
-        const product=Product.findByPk(ID.id);
+        const product= await Product.findByPk(ID.id);
         if(product){
             return product;
         }
@@ -80,8 +80,10 @@ module.exports = {
   },
 
   getOrder : async function(ID){
-    const order=Order.findByPk(ID.id);
+    const order= await Order.findByPk(ID.id);
     if(order){
+        let items = await order.getOrderItems;
+        order = {...order,items:items};
         return order;
     }
     const error = new Error('Order doesnot exist.');

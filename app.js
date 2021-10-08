@@ -40,5 +40,6 @@ sequelize
     // console.log(result);
   })
   .catch(err => {
+    console.log('error In connecting to the database');
     console.log(err);
   });
