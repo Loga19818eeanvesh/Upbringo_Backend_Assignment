@@ -1,5 +1,5 @@
-# Upbringo Assignment
-Backend API using GraphQL and MySQL database for a store owner to store the transactions in cloud.
+# Backend API using GraphQL and MySQL database for a store owner to store the transactions in cloud.
+
 
 ## How to start
 1. Run 'npm install' on terminal to download all dependencies 
