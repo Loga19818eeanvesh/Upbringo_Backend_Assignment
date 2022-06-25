@@ -84,8 +84,8 @@ Node.js, Express.js, MySQL, GraphQL
 
 ## Snapshots
 
-![create product](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.56.09%20PM.png)
-![create shop](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.56.39%20PM.png)
-![create order](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.57.12%20PM.png)
-![get product](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.57.32%20PM.png)
-![get order](https://github.com/Loga19818eeanvesh/Images/blob/main/Screenshot%202021-10-01%20at%206.58.18%20PM.png)
+![create product](https://github.com/SaiAnveshKanchi/Images/blob/main/Screenshot%202021-10-01%20at%206.56.09%20PM.png)
+![create shop](https://github.com/SaiAnveshKanchi/Images/blob/main/Screenshot%202021-10-01%20at%206.56.39%20PM.png)
+![create order](https://github.com/SaiAnveshKanchi/Images/blob/main/Screenshot%202021-10-01%20at%206.57.12%20PM.png)
+![get product](https://github.com/SaiAnveshKanchi/Images/blob/main/Screenshot%202021-10-01%20at%206.57.32%20PM.png)
+![get order](https://github.com/SaiAnveshKanchi/Images/blob/main/Screenshot%202021-10-01%20at%206.58.18%20PM.png)
